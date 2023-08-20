@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+body {
+  height: 100vh;
+  background-color: #d2e0e7;
+  color: #fff;
+  font-family: 'Lilita One', cursive;
+}
+.header {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background-color: #0a86c0;
+  border-bottom: 2px solid #d2e0e7;
+}
+.header__container {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.header__logo {
+  font-size: 30px;
+  letter-spacing: 2px;
+}
+.menu__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.menu__navbar._active .menu__list {
+  left: 0;
+}
+.menu__link {
+  display: inline-block;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease-in-out;
+}
+.menu__link:hover {
+  transform: scale(1.1);
+}
+.menu__icon {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 5;
+}
+.menu__icon span,
+.menu__icon::before,
+.menu__icon::after {
+  position: absolute;
+  left: 0;
+  height: 10%;
+  width: 100%;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.menu__icon::before,
+.menu__icon::after {
+  content: '';
+}
+.menu__icon::before {
+  top: 0;
+}
+.menu__icon::after {
+  bottom: 0;
+}
+.menu__icon span {
+  top: 50%;
+  transform: scale(1) translate(0px, -50%);
+}
+.menu__icon._active span {
+  transform: scale(0) translate(0px, -50%);
+}
+.menu__icon._active::before {
+  top: 50%;
+  transform: rotate(-45deg) translate(0px, -50%);
+}
+.menu__icon._active::after {
+  bottom: 50%;
+  transform: rotate(45deg) translate(0px, 50%);
+}
+@media (max-width: 767px) {
+  .menu__list {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 80px);
+    left: -110%;
+    top: 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding-top: 100px;
+    background-color: #0a86c0;
+  }
+  .menu__icon {
+    display: block;
+  }
+}
